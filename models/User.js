@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
             email: DataTypes.STRING,
             phone: DataTypes.STRING,
             cep: DataTypes.STRING,
-            createdAt: DataTypes.TIMESTAMP,
+            createdAt: DataTypes.DATE,
             cpf: DataTypes.STRING,
             password: DataTypes.STRING,
-            modifiedAt: DataTypes.TIMESTAMP
+            updatedAt: DataTypes.DATE
         }, {
             tableName: "users",
             timestamps: true
