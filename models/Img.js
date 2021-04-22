@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     );
-    
+    Img.associate = (models) => {
+        Img.belongsTo(models.Product, {as: "products", foreignKey:"products_id"});
+    }
     return Img;
 }

@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     );
-    
+    Scent.associate = (models) => {
+        Scent.hasMany(models.Product, {as:"scents", foreignKey:"scents_id"});
+    }
     return Scent;
 }

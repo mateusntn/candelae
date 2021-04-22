@@ -17,6 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     Order.associate = (models) => {
         Order.belongsTo(models.User, {as: "user", foreignKey: "users_id"});
         Order.belongsTo(models.FormPayment, {as: "formPayments", foreignKey: "formPayments_id"});
+        Order.belongsToMany(models.Product, {
+
+            as: "items", //alias da relação
+
+            through: "order_item", //tabela intermediária
+
+            foreignKey: "order_id",
+
+            otherKey: "products_id",
+
+            timestamps: false
+
+        });
 
     }
     

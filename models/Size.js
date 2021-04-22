@@ -8,5 +8,8 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         }
     )
+    Size.associate = (models) => {
+        Size.hasMany(models.Product, {as:"sizes", foreignKey:"sizes_id"});
+    }
         return Size;
 }
