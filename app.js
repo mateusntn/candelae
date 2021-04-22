@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usersRouter');
 var ordersRouter = require('./routes/ordersRouter');
 var formPaymentsRouter = require('./routes/formPaymentsRouter');
+var sizesRouter = require('./routes/sizesRouter');
 var scentsRouter = require('./routes/scentsRouter');
 var modelsRouter = require('./routes/modelsRouter');
 
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter);
 app.use('/formPayments', formPaymentsRouter);
+app.use('/sizes', sizesRouter);
 app.use('/scents', scentsRouter);
 app.use('/models', modelsRouter);
 
