@@ -6,6 +6,15 @@ const modelsController = {
         return res.json(models);
     },
 
+    update: async (req, res) => {
+        const {id} = req.params;
+        const {name} = req.body;
+
+        const modelUpdated = await Model.update({name}, {where: {id}});
+
+        return res.json(modelUpdated);
+    },
+
     create: async (req, res) => {
         const { name } = req.body;
         const newModel = await Model.create({ name });
