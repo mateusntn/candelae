@@ -12,6 +12,7 @@ var sizesRouter = require('./routes/sizesRouter');
 var scentsRouter = require('./routes/scentsRouter');
 var modelsRouter = require('./routes/modelsRouter');
 var productsRouter = require('./routes/productsRouter');
+var imgsRouter = require('./routes/imgsRouter');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/sizes', sizesRouter);
 app.use('/scents', scentsRouter);
 app.use('/models', modelsRouter);
 app.use('/products', productsRouter);
+app.use('/imgs', imgsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
