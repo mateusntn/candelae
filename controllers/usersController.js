@@ -1,4 +1,5 @@
 const { User, sequelize} = require('../models/');
+const bcrypt = require('bcrypt');
 
 const usersController = {
     index: async (req, res) => {
@@ -8,7 +9,10 @@ const usersController = {
 
     create: async (req, res) => {
         const { name, email, phone, cep, cpf, password } = req.body;
-        const newUser = await User.create({name, email, phone, cep, cpf, password });
+
+        const passwordCrypt = bcrypt.hashSync(password, 10);
+
+        const newUser = await User.create({name, email, phone, cep, cpf, password:passwordCrypt});
         return res.json(newUser);
     },
 
