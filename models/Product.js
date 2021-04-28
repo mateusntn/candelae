@@ -18,6 +18,19 @@ module.exports = (sequelize, DataTypes) => {
         Product.belongsTo(models.Size, {as:"sizes", foreignKey:"sizes_id"});
         Product.belongsTo(models.Model, {as:"models", foreignKey:"models_id"});
         Product.hasMany(models.Img, {as: "imgs", foreignKey:"products_id"});
+        Product.belongsToMany(models.Order, {
+
+            as: "items", //alias da relação
+
+            through: "order_item", //tabela intermediária
+
+            foreignKey: "products_id",
+
+            otherKey: "orders_id",
+
+            timestamps: false
+
+        });
     }
     return Product;
 }
