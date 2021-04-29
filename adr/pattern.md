@@ -7,7 +7,7 @@
 
      - "Change" para houver mudanças;  
 
-    - "Add" para quando adicionar uma funcionalidade em algo já criado;  
+     - "Add" para quando adicionar uma funcionalidade em algo já criado;  
 
      - "Remove" para quando deletar algo.  
 
