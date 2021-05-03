@@ -1,5 +1,5 @@
 const { User, sequelize} = require('../models/');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const usersController = {
     index: async (req, res) => {
