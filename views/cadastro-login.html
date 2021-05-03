@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Login/Cadastro</title>
+</head>
+<body>
+    <header>
+        <a href="#" title="Pagina inicial">
+            <img class="logo" src="img/logo-candelae.png" alt="Logo candelae">
+        </a>
+        <form class="search">
+            <input class="search-bar" type="text">
+            <button title="Pesquisar">
+                <img src="img/search-icon.png" alt="">
+            </button>
+        </form>
+        <nav>
+            <a href="#">Sobre nós</a>
+            <div class="vertical-bar"></div>
+            <div class="icons">
+                <a href="#" title="Perfil">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <a href="#" title="Carrinho">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="register">
+            <h2>Criar novo cadastro</h2>
+            <form action="" id="register-form">
+                <label for="register-name"> Nome completo: </label><br>
+                    <input type="text" id="register-name" required><br>
+
+                <label for="register-email"> E-mail: </label><br>
+                    <input type="email" id="register-email" required><br>
+
+                <label for="cpf"> CPF: </label><br>
+                    <input type="text" id="cpf" required>
+
+                <label for="phone"> Telefone: </label><br>
+                    <input type="" id="phone" placeholder="(xx)9xxxxxxxx" required>
+
+                <label for="register-password"> Digite sua senha: </label><br>
+                    <input type="password" id="register-password" required><br>
+
+                <label for="register-confirmation"> Confirme sua senha: </label><br>
+                    <input type="password" id="register-confirmation" required><br>
+
+                    <strong id="error"></strong>
+                <button type="submit" id="register-button">CADASTRAR</button>
+            </form>
+        </section>
+
+        <div class="vertical-line"></div>
+
+        <section class="login">
+            <h2>Já possui cadastro?</h2>
+            <form action="" id="login-form">
+                <label for="login-email"> E-mail: </label><br>
+                    <input type="email" id="login-email" required><br>
+
+                <label for="login-password"> Digite sua senha: </label><br>
+                    <input type="password" id="login-password" required><br>
+
+                <button type="submit" id="login-button">ENTRAR</button>
+                    <a href="#"> Esqueci a senha </a>
+            </form>
+        </section>
+    </main>    
+    <footer>
+        <section class="contact">
+            <h2>Fale conosco!</h2>
+            <ul>
+                <li>
+                    <a class="link-contato" href="tel:+5581985524376">
+                        <i class="fab fa-whatsapp"></i> (81) 98552-4376
+                    </a>
+                </li>
+            
+                <li>
+                    <a class="link-contato" href="https://www.instagram.com/velas_candelae/"> 
+                        <i class="fab fa-instagram"></i> @velas_candelae
+                    </a>
+                </li>
+
+                <li>
+                    <a class="link-contato" href = "mailto:velascandelae@gmail.com">
+                        <i class="far fa-envelope"></i> velascandelae@gmail.com
+                    </a>
+                </li>
+
+                <li>
+                    <i class="fas fa-truck"></i>  Entregas em Recife e RMR
+                </li>
+            </ul>            
+        </section>
+        <div class="vertical-bar"></div>
+        <section class="payment">
+            <h2>Formas de pagamento:</h2>
+            <ul>
+                <li>
+                    <i class="far fa-credit-card"></i> Cartões de crédito/débito
+                </li>
+                <li>
+                    <i class="fas fa-barcode"></i> Boleto bancário
+                </li>
+                <li>
+                    <i class="fas fa-qrcode"></i> Pix
+                </li>
+                <li>
+                    <i class="fab fa-cc-paypal"></i> PayPal
+                </li>           
+            </ul>
+        </section>
+    </footer>
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+</body>
+</html>

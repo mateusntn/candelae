@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color-first: #a65730;
+    --color-second: #f5d6c3;
+    --color-third: #553c26;
+    --color-fourth: #d7c5b6;
+    --color-button: #39a40b;
+    --color-gray: #919191;
+    --color-bg: #fefdfc;
+}
+
+body {
+    font-family: 'Anonymous Pro', monospace;
+    background-color: var(--color-bg);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--color-third);
+}
+
+input {
+    height: 28px;
+}

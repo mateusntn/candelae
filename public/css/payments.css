@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h6{
+    margin: 5px;
+    position: absolute;
+}
+
+h6 span{
+    font-weight: bold;
+}
+/* PAYMENT AND ADRESS*/
+.data{
+    width: 50vw;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
+}
+
+.data input {
+    border: 3px solid var(--color-second);
+    width: 100%;
+    height: 28px;
+    margin-bottom: 10px;
+}
+
+.data article{
+    width: 100%;
+    margin-top: 50px;
+    padding: 0px 50px;
+}
+
+.data article h1{
+    text-align: center;
+    color: var(--color-third);
+    font-size: 30px;
+    font-weight: bold;
+}
+.choice{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.choice a{
+    padding: 5px 0px;
+    width: 30%;
+    text-align: center;
+    color: var(--color-first);
+}
+
+.choice a:hover{
+    text-decoration: underline;
+}
+.choice a.credit_debit{
+    border-right: 1px solid var(--color-third);
+}
+.data_payment_card,
+.data_payment_boleto,
+.form_adress{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.card,
+.adress_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*payment_card*/
+section.data_payment_card .card .cod{
+    margin-right: 20px;
+}
+/*adress*/
+article.adress_choices{
+    margin-top: 0;
+}
+article.adress_choices .form_adress .adress_details .number{
+    width: 30%;
+    margin-right: 20px;
+}
+
+/* PURCHASES */
+.purchase{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 48vw;
+    position: absolute;
+}
+
+.data_purchase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: fixed;
+    right: 0;
+}
+
+.button_purchase{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prices_purchase{
+    padding: 40px;
+    line-height: 35px;
+    border: 1px solid var(--color-first);
+}
+
+.sub-purchase{
+    border-bottom: 1px solid var(--color-first);
+}
+
+.button_purchase button{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 25px;
+    color: white;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border: none;
+    background-color: var(--color-button);
+}
+
+@media (max-width: 940px) {
+    .data_payment_card .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    section.data_payment_card .card .cod,
+    .valid{
+        margin-right: 0px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    main{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .data{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+    .purchase{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .data_purchase{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+}
+
+
+
+
