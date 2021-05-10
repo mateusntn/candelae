@@ -1,0 +1,28 @@
+<header>
+    <a href="/" title="Pagina inicial">
+        <img class="logo" src="/img/logo-candelae.png" alt="Logo candelae">
+    </a>
+    <form class="search">
+        <input class="search-bar" type="text">
+        <button title="Pesquisar">
+            <img src="/img/search-icon.png" alt="">
+        </button>
+    </form>
+    <nav>
+        <a href="/scents/about">Sobre nós</a>
+        <div class="vertical-bar"></div>
+        <div class="icons">
+            <a href="/users/profile" title="Perfil">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <a href="/orders/cart" title="Carrinho">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <% if( typeof user !== "undefined"){ %>
+                <button onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+                <% } %>
+        </div>
+    </nav>
+</header>
