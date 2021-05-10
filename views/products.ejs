@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main>
+        <section class="img-product">
+            <div>
+                <% for(img of product.imgs) { %>
+                    <img src=<%= img.path %> >
+                <% } %> 
+            </div>
+        </section>
+        <section class="info">
+            <div class="product-name">
+                <h1><%= product.name %></h1>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <p>(10)</p>
+                </div>
+            </div>
+            <div class="selectors">
+                <div class="scent">
+                    <h2>Aroma:</h2>                
+                    <select id="scent">
+                        <% for (scent of product.scents) { %>
+                            <option><%= scent.name %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="quant">
+                    <h2>Quantidade:</h2>
+                    <input type="number" name="quant" id="quant" value="1">
+                </div>
+                
+            </div>
+            <div class="payments">
+                <h2>Formas de pagamento</h2>
+                <div class="icons">
+                    <i class="far fa-credit-card"></i>
+                    <i class="fab fa-cc-paypal"></i>                
+                    <i class="fas fa-barcode"></i>
+                    <i class="fas fa-qrcode"></i>
+                </div>
+            </div>
+        </section>
+        <section class="price">
+            <div>
+                <h1>R$ <%= product.value %>,00</h1>
+                <button class="buy" type="button" onclick="window.location.href = '/orders/cart', addCart(
+                    '<%= product.id%>',
+                    '<%= product.name%>',
+                    '<%= product.value%>',
+                    '<%= product.imgs[0].path%>',
+                    )"
+                >COMPRAR</button>
+                <form>
+                    <h2>Calcule o frete</h2>
+                    <div class="cep">
+                        <input type="text" name="cep" id="cep" placeholder="CEP">
+                        <button type="submit">OK</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script>
+        const addCart = (id, name, value, imgs) => {
+            let cart = localStorage.getItem("order");
+            const scent = document.querySelector('#scent').value
+            const quantProducts = document.querySelector('#quant').value
+
+            if (cart) {
+                const items = JSON.parse(cart)
+                items.products.push({
+                    id,
+                    name,
+                    value,
+                    quantProducts,
+                    imgs,
+                    scent
+                })
+                localStorage.setItem("order", JSON.stringify(items));
+            } else {
+                const items = {
+                    products: [{
+                        id,
+                        name,
+                        value,
+                        quantProducts,
+                        imgs,
+                        scent
+                    }]
+                }
+                localStorage.setItem("order", JSON.stringify(items));
+            }
+        
+        }
+    </script>
+</body>
+</html>

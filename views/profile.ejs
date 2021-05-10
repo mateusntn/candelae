@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <section class="profile">
+            <h3 class="title">Perfil</h3>
+            <div class="header-profile">
+                <img src="/img/avatar.png" alt="Foto de perfil" class="profile-pic">
+                    <button class="edit" onclick="window.location.href = '/users/edit'">Editar <i class="far fa-edit"></i> </button>
+            </div>
+            <div class="info-profile">
+                <ul>
+                    <li><span>Nome:</span> <%= user.name %></li>
+                    <li><span>E-mail:</span> <%= user.email %></li>
+                    <li><span>Telefone:</span> <%= user.phone %></li>
+                    <li><span>CPF:</span> <%= user.cpf %></li>
+                </ul>
+            </div>
+        </section>
+        <section class="historic">
+            <h3 class="title">Histórico de Compras</h3>
+            <div class="orders">
+                <% for (order of orders) {%>
+                    <div class="order">
+                        <div>
+                            <p>código: <%= order.id %></p>
+                            <p>R$<%= order.amount %>,00</p>
+                        </div>
+    
+                        <p><%= order.createdAt %></p>
+    
+                        <p><%= order.order_status %></p>
+                    </div>
+                <% } %>
+            </div>
+            
+        </section>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

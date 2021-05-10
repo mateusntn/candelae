@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/payments_adresses.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main id="main_edit">
+        <div class="data">
+            <article class="adress_choices">
+                <h1> Atualize endereço</h1>
+                <% for (adress of adresses) {%>
+                <form class="adress_choices" id="adress_choices" method="put" action="/users/profile">
+                    <label for="cep">CEP: </label>
+                        <input type="text" name="cep" id="cep" required>
+                        <p><%=adress.cep%></p>
+                    <label for="adress">Rua: </label>
+                        <input type="text" name="adress" id="adress" required>
+                        <p><%=adress.adress_street%></p>
+                    <div class="adress_details">
+                        <div class="number">
+                            <label for="number">Número: </label>
+                            <input type="text" name="number" id="number" required>
+                            <p><%=adress.adress_number%></p>
+                        </div>
+                        <div class="complement">
+                            <label for="complement" class="cod">Complemento: </label>
+                            <input type="text" name="complement" id="complement">
+                            <p><%=adress.complement ? adress.complement : ' '%></p>
+                        </div>
+                    </div>
+                    <label for="reference_point">Ponto de referência: </label>
+                        <input type="text" name="reference_point" id="reference_point">
+                        <p><%=adress.reference_point ? adress.reference_point : 'Sem ponto de referência'%></p>
+                    <label for="neighborhood">Bairro: </label>
+                        <input type="text" name="neighborhood" id="neighborhood" required>
+                        <p><%=adress.neighborhood%></p>
+                    <label for="city">Cidade: </label>
+                        <input type="text" name="city" id="city" required>
+                        <p><%=adress.city%></p>
+                    <label for="state">Estado: </label>
+                        <input type="text" name="state" id="state" required>
+                        <p><%=adress.state%></p>
+                        <%}%>  
+                    <button type="submit" id="add_adress">
+                        Atualizar endereço
+                    </button>
+                </form>
+            </article>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector("#adress_choices").addEventListener("submit", (event) => {
+            event.preventDefault();
+        window.location.reload(true) 
+        });
+    </script>
+</body>
+</html>

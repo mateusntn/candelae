@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main>
+        <section class="login">
+            <h2>Entre</h2>
+            <form action="/users/login" id="login-form" method="POST">
+                <label for="login_email"> E_mail: </label><br>
+                    <input type="email" id="login_email" name="login_email" required><br>
+
+                <label for="login_password"> Digite sua senha: </label><br>
+                    <input type="password" id="login_password" name="login_password" required><br>
+
+                <button type="submit" id="login_button">ENTRAR</button>
+                <p>Não possui um cadastro? <a href="/users/register">Cadastre-se</a></p>
+            </form>
+        </section>
+    </main>    
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/payments_adresses.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main>
+        <div class="data">
+            <section class="payment_options">
+                <h1>Cartões</h1>
+                <% for (payment of payments) {%>
+                    <button class="dynamic_formpayment" onclick="chooseFormPayment()"> 
+                        <p>Titular: <%=payment.titular_name%></p>
+                        <p>Cartão: <%=payment.card_number%></p>
+                        <p>Validade: <%=payment.card_valid%></p>
+                    </button>
+                <%}%> 
+            </section>
+            <article class="payment_choices">
+                <h1> Pagamento</h1>
+                    <h5>Cartão</h5>
+                <form class="data_payment_card" id="data_payment_card" method="post" action="/formPayments">
+                    <label for="titular_name">Nome do titular: </label>
+                        <input type="text" name="titular_name" id="titular_name" required>
+                    <label for="titular_cpf">CPF: </label>
+                        <input type="text" name="titular_cpf" id="titular_cpf" required>
+                    <label for="card_number">Numero do cartão: </label>
+                        <input type="text" name="card_number" id="card_number" required>
+                    <div class="card">
+                        <div class="cod">
+                            <label for="card_code">Código de segurança: </label>
+                                <input type="text" name="card_code" id="card_code" required>
+                        </div>
+                        <div class="valid">
+                            <label for="card_valid" class="cod">Validade: </label>
+                                <input type="text" name="card_valid" id="card_valid" required>
+                        </div>
+                    </div>
+                    <button type="submit" id="add_payment">
+                        Adicionar nova opção de pagamento
+                    </button>
+                </form>
+            </article>
+        </div>
+        <div class="purchase">
+            <div class="data_purchase">
+                <div class="button_purchase">
+                    <div class="prices_purchase">
+                        
+                    </div>
+                    <button onclick="window.location.href = '/adress'" id="btn-submit">
+                        CONTINUAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("order"));
+        let sum = 0;
+        for (product of cart.products) {
+            sum += parseFloat(product.value) * parseFloat(product.quantProducts);
+        }
+
+        
+        let values = `
+                        <div class="sub-purchase">
+                            <h3>Subtotal (qtd items): <span>R$ ${sum},00</span></h3>
+                            <h3>Frete: <span>R$ 0,00</span></h3>
+                        </div>
+                        <h3>Total: <span>R$ ${sum},00</span></h3>
+        `
+        document.querySelector(".prices_purchase").insertAdjacentHTML('afterbegin',values);
+
+        //Adicionar pagamento
+        document.querySelector("#add-payment").addEventListener("submit", (event) => {
+            event.preventDefault();
+        window.location.reload(true) 
+        });
+    </script>
+</body>
+</html>

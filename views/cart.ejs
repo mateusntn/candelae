@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main>
+        <div class="products-total">
+            <section class="products" id="carrinho">
+                
+            </section>
+            <section class="purchase">
+                <h1 class="title">Carrinho</h1>
+                <div class="finish">
+                    
+                    <div class="buttons">
+                        <button onclick="window.location.href = '/formPayments'">CONTINUAR</button>
+                        <a href="/">Continuar a comprar</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("order"));
+        let produtos = "";
+        let counter = 0;
+        for (product of cart.products) {
+            produtos += `
+            <div class="product">
+                    <img src="${product.imgs}" alt="Vela">
+                    <div class="description">
+                        <p>${product.name}</p>
+                        <p>${product.scent}</p>
+                        <p class="value">R$ ${product.value},00</p>
+                    </div>
+                    <div class="quantity">
+                        <p class="qtd">Quantidade: ${product.quantProducts? product.quantProducts : 1}</p>
+                        <button onclick="deleteItem(${counter})">Excluir</button>
+                    </div>
+            </div>
+            `
+            counter ++
+        }
+        document.getElementById('carrinho').innerHTML = produtos
+
+        let sum = 0;
+        for (product of cart.products) {
+            sum += parseFloat(product.value) * parseFloat(product.quantProducts ? product.quantProducts : 1);
+        }
+
+        
+        let values = `
+                    <div class="value">
+                        <p><span>Subtotal (qtd itens):</span>R$ ${sum},00</p>
+                        <p><span>Frete:</span> R$ 0,00</p>
+                        <div class="horizontal-bar"></div>
+                        <p><span>Total:</span>R$ ${sum},00</p>
+                    </div>
+        `
+        document.querySelector(".finish").insertAdjacentHTML('afterbegin',values);
+
+        function deleteItem ( index ) {
+            let cartRemove = JSON.parse(localStorage.getItem('order'));
+            cartRemove.products.splice(index, 1);
+            console.log(cartRemove)
+            localStorage.setItem('order', JSON.stringify(cartRemove));
+            window.location.reload(true);
+        }
+
+    </script>
+</body>
+</html>

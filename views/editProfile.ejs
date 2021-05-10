@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <title>Editar Perfil</title>
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main>
+        <section class="register">
+            <h2>Insira novas informações</h2>
+            <form action="/users/edit" id="form" method="POST">
+                <label for="name"> Nome completo: </label><br>
+                    <input name="name" type="text" id="name"><br>
+
+                <label for="email"> E-mail: </label><br>
+                    <input name="email" type="email" id="email" ><br>
+
+                <label for="phone"> Telefone: </label><br>
+                    <input name="phone" type="" id="phone" placeholder="(xx)9xxxxxxxx" >
+
+                <label for="cpf"> CPF: </label><br>
+                    <input name="cpf" type="text" id="cpf" >
+
+                <label for="password"> Digite sua senha: </label><br>
+                    <input name="password" type="password" id="password" ><br>
+
+                <label for="confirmation"> Confirme sua senha: </label><br>
+                    <input name="confirmation" type="password" id="confirmation" ><br>
+
+                    <strong id="error"></strong>
+                <button type="submit" id="button">ATUALIZAR</button>
+            </form>
+        </section>
+    </main>    
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

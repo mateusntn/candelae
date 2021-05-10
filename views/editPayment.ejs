@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candelae</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/payments_adresses.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+   <%- include('./partials/header') %>
+    <main id="main_edit">
+        <div class="data">
+            <article class="payment_choices">
+                <h1> Editar forma de pagamento </h1>
+                <% for (payment of payments) {%>
+                <form class="data_payment_card" id="data_payment_card" method="put" action="/users/profile">
+                    <label for="titular_name">Nome do titular: </label>
+                        <input type="text" name="titular_name" id="titular_name" required>
+                            <p><%=payment.titular_name%></p>
+                        <label for="titular_cpf">CPF: </label>
+                        <input type="text" name="titular_cpf" id="titular_cpf" required>
+                            <p><%=payment.titular_cpf%></p>
+                        <label for="card_number">Numero do cartão: </label>
+                        <input type="text" name="card_number" id="card_number" required>
+                                <p><%=payment.card_number%></p>                    
+                        <div class="card">
+                        <div class="cod">
+                            <label for="card_code">Código de segurança: </label>
+                                <input type="text" name="card_code" id="card_code" required>
+                                <p><%=payment.card_code%></p>
+                        </div>
+                        <div class="valid">
+                            <label for="card_valid" class="cod">Validade: </label>
+                                <input type="text" name="card_valid" id="card_valid" required>
+                                <p><%=payment.card_valid%></p>
+                            <%}%>
+                            </div>
+                    </div>
+                    <button type="submit" id="add_payment">
+                        Atualizar forma de pagamento
+                    </button>
+                </form>
+            </article>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector("#adress_choices").addEventListener("submit", (event) => {
+            event.preventDefault();
+        window.location.reload(true) 
+        });
+    </script>
+</body>
+</html>

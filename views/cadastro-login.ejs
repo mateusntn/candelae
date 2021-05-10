@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/components/header.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Login/Cadastro</title>
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <section class="register">
+            <h2>Criar novo cadastro</h2>
+            <form action="/users" id="register-form" method="POST">
+                <label for="register_name"> Nome completo: </label><br>
+                    <input name="register_name" type="text" id="register_name" required><br>
+
+                <label for="register_email"> E-mail: </label><br>
+                    <input name="register_email" type="email" id="register_email" required><br>
+
+                <label for="phone"> Telefone: </label><br>
+                    <input name="phone" type="" id="phone" placeholder="(xx)9xxxxxxxx" required>
+
+                <label for="cpf"> CPF: </label><br>
+                    <input name="cpf" type="text" id="cpf" required>
+
+                <label for="register_password"> Digite sua senha: </label><br>
+                    <input name="register_password" type="password" id="register_password" required><br>
+
+                <label for="register_confirmation"> Confirme sua senha: </label><br>
+                    <input name="register_confirmation" type="password" id="register_confirmation" required><br>
+
+                    <strong id="error"></strong>
+                <button type="submit" id="register_button" >CADASTRAR</button>
+            </form>
+        </section>
+
+        <div class="vertical-line"></div>
+
+        <section class="login">
+            <h2>Já possui cadastro?</h2>
+            <form action="" id="login-form">
+                <label for="login_email"> E_mail: </label><br>
+                    <input type="email" id="login_email" required><br>
+
+                <label for="login_password"> Digite sua senha: </label><br>
+                    <input type="password" id="login_password" required><br>
+
+                <button type="submit" id="login_button">ENTRAR</button>
+                    <a href="#"> Esqueci a senha </a>
+            </form>
+        </section>
+    </main>    
+    <%- include('./partials/footer') %>
+    <script src="https://kit.fontawesome.com/a27764f56e.js" crossorigin="anonymous"></script>
+</body>
+</html>
