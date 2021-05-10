@@ -51,7 +51,6 @@ main .info .product-name .stars{
 
 main .selectors{
     width: 220px;
-    height: 150px;
 }
 
 main .selectors h2{
@@ -147,10 +146,16 @@ main .price .buy{
     font-family: 'Roboto Mono', monospace;
     font-weight: bolder;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .price .buy:hover {
+    background-color: #246d05;
 }
 
 main .price form {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 main .price h2{

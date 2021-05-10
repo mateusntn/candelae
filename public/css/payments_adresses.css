@@ -6,9 +6,10 @@ main{
     justify-content: space-between;
 }
 
-h6{
-    margin: 5px;
-    position: absolute;
+
+h5{
+    margin-top: 20px;
+    text-align: center;
 }
 
 h6 span{
@@ -21,6 +22,7 @@ h6 span{
     justify-content: center;
     align-items: center;
     margin-left: 5vw;
+    margin-top: 4vh;
 }
 
 .data input {
@@ -33,43 +35,76 @@ h6 span{
 .data article{
     width: 100%;
     margin-top: 50px;
-    padding: 0px 50px;
+    padding: 0px 100px;
 }
 
-.data article h1{
+.data h1{
     text-align: center;
     color: var(--color-third);
     font-size: 30px;
     font-weight: bold;
 }
 .choice{
+    background-color: var(--color-first);
+    color: var(--color-bg);
+}
+.payment_options,
+.adress_options{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 10px;
+    align-items: center;
+    
 }
-
-.choice a{
-    padding: 5px 0px;
-    width: 30%;
+.dynamic_formpayment,
+.dynamic_adress{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: var(--color-first);
+    width: 60%;
+    height: 150px;
+    margin: 5px;
+    color: var(--color-third);
+    background-color: var(--color-second);
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.dynamic_formpayment:hover, .dynamic_formpayment:active,
+.dynamic_adress:hover, .dynamic_adress:active{
+    background-color: var(--color-first);
+    color: var(--color-bg);
 }
 
-.choice a:hover{
-    text-decoration: underline;
+#add_payment,
+#add_adress{
+    background-color: var(--color-fourth);
+    border: none;
+    padding: 10px 10px;
+    color: var(--color-third);
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.choice a.credit_debit{
-    border-right: 1px solid var(--color-third);
+#add_payment:hover,
+#add_adress:hover{
+    background-color: var(--color-third);
+    color: var(--color-fourth);
 }
+
 .data_payment_card,
-.data_payment_boleto,
-.form_adress{
+.form_pays,
+.adress_choices{
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     flex-direction: column;
-    padding: 20px;
+    margin: 30px 0;
 }
 
 .card,
@@ -79,17 +114,19 @@ h6 span{
     align-items: center;
 }
 /*payment_card*/
-section.data_payment_card .card .cod{
+.data_payment_card .card .cod{
+    width: 60%;
     margin-right: 20px;
 }
 /*adress*/
 article.adress_choices{
     margin-top: 0;
 }
-article.adress_choices .form_adress .adress_details .number{
+article.adress_choices .adress_details .number{
     width: 30%;
     margin-right: 20px;
 }
+
 
 /* PURCHASES */
 .purchase{
@@ -107,6 +144,8 @@ article.adress_choices .form_adress .adress_details .number{
     width: 50%;
     position: fixed;
     right: 0;
+    top: 150px;
+    bottom: 150px;
 }
 
 .button_purchase{
@@ -135,12 +174,29 @@ article.adress_choices .form_adress .adress_details .number{
     margin-top: 20px;
     border: none;
     background-color: var(--color-button);
-    cursor: pointer;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .button_purchase button:hover {
     background-color: #246d05;
+}
+
+/* EDITS PAYMENTS */
+
+#main_edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main_edit input{
+    margin-bottom: 0;
+}
+
+#main_edit p{
+    font-style: italic;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 940px) {
@@ -151,39 +207,56 @@ article.adress_choices .form_adress .adress_details .number{
         flex-direction: column;
     }
 
-    section.data_payment_card .card .cod,
+    .data_payment_card .card .cod,
     .valid{
         margin-right: 0px;
         width: 100%;
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 820px) {
     main{
         justify-content: center;
         flex-wrap: wrap;
     }
-    .data{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-left: 0;
-    }
-    .purchase{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
+    .dynamic_formpayment,
+.dynamic_adress{
+    width: 90%;
+    height: 150px;
+}
+
+    .data,
+    .purchase,
     .data_purchase{
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .data{
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+    .purchase,
+    .data_purchase{
         position: relative;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .data article{
+        padding: 0px 20px;
+    }
+    .data_payment_card,
+    .data_payment_boleto,
+    .form_adress{
+        padding: 10px 0px;
+    }
+    .prices_purchase{
+        padding: 20px;
     }
 }
 

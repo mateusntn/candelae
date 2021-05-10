@@ -106,8 +106,6 @@ footer .vertical-bar{
 
 
 @media (max-width: 300px){
-
-
     footer {
         display: flex;
         flex-wrap: wrap;
@@ -118,15 +116,9 @@ footer .vertical-bar{
     .vertical-bar {
         display: none;
     }
-
-
-
     .contact {
         margin-bottom: 50px;
     }
-
-
-
     .payment {
         width: 100%;
     }

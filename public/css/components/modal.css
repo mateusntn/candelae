@@ -1,0 +1,58 @@
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fefdfc;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.modal{
+    background-color: var(--color-third);
+    width: 30%;
+    min-width: 300px;
+    padding: 40px;
+    border-radius: 1%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+}
+
+.close-btn {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fefdfc;
+    border: none;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.close-btn:hover {
+    color: #797676;
+    cursor: pointer;
+}
+
+.modal-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.message {
+    padding: 20px 0 5px 0;
+    text-align: center;
+}
+
+.message-progress {
+    text-align: center;
+}
+
+.message-progress a {
+    color: var(--color-second);
+    text-decoration: underline;
+    font-weight: bold;
+}

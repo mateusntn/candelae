@@ -3,7 +3,6 @@
 header {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 30px;
     background-color: var(--color-first);
@@ -29,6 +28,7 @@ header .search .search-bar {
     border-radius: 10px;
     background-color: var(--color-bg);
     outline: none;
+    padding: 5px;
 }
 
 header .search button {
@@ -73,3 +73,17 @@ header nav i {
     font-size: 30px;
 }
 
+header nav button {
+    background: none;
+    border: none;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-wrap: wrap;
+    }
+    
+    header nav {
+        width: 100%;
+    }
+}

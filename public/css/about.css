@@ -1,0 +1,77 @@
+/* Sobre */
+
+ .vela{
+
+   width: 40%;
+} 
+
+
+main .container {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+   
+}
+
+main .container p {
+    width: 40%;
+    line-height: 30px;
+    font-size: 15px;
+    text-align:justify;
+}
+
+main {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.links {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    display: flex;
+    
+}
+
+.links a {
+   
+    color: var(--color-first);
+  
+}
+
+.current {
+
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+.vertical-line {
+
+    height: 25px;
+    border: 0.5px solid var(--color-first);
+    margin: 0px 10px;
+
+}
+
+@media (max-width: 600px) {
+    main .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main .container img {
+        margin-bottom: 50px;
+    }
+
+    main .container p {
+        width: 90%;
+    }
+}
+
+
+
+
