@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
             description: DataTypes.STRING,
             quantProducts: DataTypes.INTEGER,
             value: DataTypes.FLOAT,
-            scents_id: DataTypes.INTEGER,
             sizes_id: DataTypes.INTEGER,
             models_id: DataTypes.INTEGER,
         }, {
@@ -14,10 +13,20 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     Product.associate = (models) => {
-        Product.belongsTo(models.Scent, {as:"scents", foreignKey:"scents_id"});
         Product.belongsTo(models.Size, {as:"sizes", foreignKey:"sizes_id"});
         Product.belongsTo(models.Model, {as:"models", foreignKey:"models_id"});
         Product.hasMany(models.Img, {as: "imgs", foreignKey:"products_id"});
+        Product.belongsToMany(models.Scent, {
+            as:"scents",
+
+            through: "scents_has_products",
+
+            foreignKey:"products_id",
+
+            otherKey:"scents_id",
+
+            timestamps: false
+        });
         Product.belongsToMany(models.Order, {
 
             as: "items", //alias da relação

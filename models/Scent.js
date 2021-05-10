@@ -9,7 +9,17 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     Scent.associate = (models) => {
-        Scent.hasMany(models.Product, {as:"scents", foreignKey:"scents_id"});
+        Scent.belongsToMany(models.Product, {
+            as:"scents",
+            
+            through: "scents_has_products",
+    
+            foreignKey:"scents_id",
+    
+            otherKey:"products_id",
+    
+            timestamps: false
+        });
     }
     return Scent;
 }
