@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Adress.associate = (models) => {
         Adress.belongsTo(models.User, {as: "user", foreignKey:"user_id_adress", targetKey: 'id'});
+        Adress.hasMany(models.Order, {as: "orders", foreignKey: "adress_id_orders", targetKey: 'id'});
     }
     
     return Adress;

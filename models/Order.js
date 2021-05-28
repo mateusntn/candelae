@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     Order.associate = (models) => {
         Order.belongsTo(models.User, {as: "user", foreignKey: "users_id"});
         Order.belongsTo(models.FormPayment, {as: "formPayments", foreignKey: "formPayments_id"});
+        Order.belongsTo(models.Adress, {as: "adress", foreignKey: "adress_id_orders", targetKey: 'id'});
         Order.belongsToMany(models.Product, {
 
             as: "items", //alias da relação
