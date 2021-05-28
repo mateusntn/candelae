@@ -1,9 +1,27 @@
-const { Product, sequelize} = require('../models/');
+const { Product, User, sequelize} = require('../models/');
 
 const productsController = {
     index: async (req, res) => {
-        const products = await Product.findAll();
-        return res.json(products);
+        
+        const products = await Product.findAll({
+            include: ['scents', 'sizes', 'models', 'imgs', 'items']
+        });
+        
+        if(req.session.userLoged){
+            const { id } = req.session.userLoged;
+            const user = await User.findByPk(id);
+            return res.render('index',{listProducts: products, user: user});
+        } else{          
+            return res.render('index',{listProducts: products});
+        }
+    },
+
+    filterByPk: async (req,res) => {
+        const {id} = req.params;
+        const product = await Product.findByPk(id, {
+            include: ['scents', 'sizes', 'models', 'imgs', 'items']
+        })
+        return res.render('products',{product});
     },
 
     create: async (req, res) => {

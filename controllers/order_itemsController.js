@@ -7,8 +7,8 @@ const order_itemsController = {
     },
 
     create: async (req, res) => {
-        const { path, products_id } = req.body;
-        const newOrder_item = await Order_item.create({ path, products_id });
+        const { orders_id, products_id, quantProducts } = req.body;
+        const newOrder_item = await Order_item.create({ orders_id, products_id, quantProducts });
         return res.json(newOrder_item);
     }, 
     
